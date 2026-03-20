@@ -1533,7 +1533,7 @@ INSTRUCCIONES:
       });
 
       const data = await response.json();
-      const botMessage = data.content?.[0]?.text || 'Lo siento, no pude procesar tu mensaje. ¿Te conecto con un asesor?';
+      const botMessage = data.content?.[0]?.text || JSON.stringify(data);
       conversationHistory.push({ role: 'assistant', content: botMessage });
       return botMessage;
     } catch (error) {
